@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            background-color: rgb(131, 191, 243);
+            width: 500px;
+            text-align: center;
+            font-size: 1.5em;
+            padding: 40px;
+            margin-left: 355px;
+            margin-top: 80px;
+            border-radius: 30px;
+            height: 150px;
+            width: 300px;
+        }
+        #data{
+            background-color: #002aff;
+            box-shadow: 0px 0px 10px #212c4a;
+            border-radius: 10px;
+            text-align: center;
+            color: blue;
+            font-size:x-large;
+            font-style: italic;
+            height: 50px;
+            color: rgb(255, 0, 0) ;
+        }
+        #Jan{
+            background-color: rgb(39, 39, 145);
+            color: white;
+            border-radius: 20px;
+            font-weight: 900;
+            width: 60px;
+        }
+        #bn{
+           background-color: red; 
+           color: white;
+           border-radius: 20px;
+           font-weight: 900;
+           width: 60px;
+        }
+        #bh{
+          background-color: rgb(110, 235, 110);
+          color: white;
+          border-radius: 20px;
+          font-weight: 900;
+          width: 60px;
+        }
+        #janu{
+            word-spacing: 10px;
+            color: white;
+        }
+        #watch{
+            text-align: center;
+            background-color: rgb(255, 0, 0);
+            color: rgb(43, 0, 255);
+        }
+    </style>
+</head>
+<body>
+    <h1 id="watch"><marquee>GOLDEN STOPWATCH</marquee></h1>
+    <div id="main">
+        <p id="data">
+            <span id="hour">00</span> :
+            
+            <span id="mint">00</span> :
+            <span id="sec">00</span> :
+            <span id="milisec">00</span>
+
+            
+        </p>
+        <div id="janu">
+        <button id="Jan" onclick="pause()">Pause</button>
+        <button id="bn" onclick="start()">Start</button>
+        <button id="bh" onclick="reset()">Reset</button>
+        </div>
+        
+    </div>
+</body>
+<script>
+    var milisec = 0;
+    var sec = 0;
+    var mint = 0;
+    var hour = 0;
+    var Interval;
+    
+    
+    function start(){
+        clearInterval(Interval);
+         Interval = setInterval(data, 10);
+        
+    }
+
+    function pause(){
+    clearInterval(Interval)
+    }
+
+    function reset(){
+        clearInterval(Interval)
+        milisec = 0;
+     sec = 0;
+     mint = 0;
+     hour = 0;
+     document.getElementById("milisec").innerHTML = milisec;
+     document.getElementById("sec").innerHTML = sec;
+     document.getElementById("mint").innerHTML = mint;
+     document.getElementById("hour").innerHTML = hour;           
+
+    }
+
+    function data(){
+            milisec++;
+            document.getElementById("milisec").innerHTML = milisec;
+            if(milisec >=100){
+                25
+                sec++;
+                milisec = 0;
+                document.getElementById("sec").innerHTML = sec;
+                if(sec >= 59){
+                    mint++;
+                    sec = 0;
+                    document.getElementById("mint").innerHTML = mint;
+                    if(mint >= 59){
+                        hour++;
+                        mint = 0;
+                        document.getElementById("hour").innerHTML = hour;           
+                    }
+                }
+            }
+        }           
+ </script>
+</html>
